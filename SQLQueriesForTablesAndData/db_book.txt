@@ -1,0 +1,40 @@
+CREATE TABLE `sap0034db`.`db_book` (
+  `BookID` INT NOT NULL AUTO_INCREMENT,
+  `Title` VARCHAR(256) NOT NULL,
+  `UnitPrice` DECIMAL(10,2) NOT NULL,
+  `Author` VARCHAR(256) NOT NULL,
+  `Quantity` INT NOT NULL,
+  `SupplierID` INT NOT NULL,
+  `SubjectID` INT NOT NULL,
+  PRIMARY KEY (`BookID`),
+  INDEX `SupplierID_idx` (`SupplierID` ASC) VISIBLE,
+  INDEX `SubjectID_idx` (`SubjectID` ASC) VISIBLE,
+  CONSTRAINT `SupplierID`
+    FOREIGN KEY (`SupplierID`)
+    REFERENCES `sap0034db`.`db_supplier` (`SupplierID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `SubjectID`
+    FOREIGN KEY (`SubjectID`)
+    REFERENCES `sap0034db`.`db_subject` (`SubjectID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+COMMENT = 'This table holds the book information including quantity and the supplier and subjects.';
+
+
+INSERT INTO `sap0034db`.`db_book`
+(`Title`,
+`UnitPrice`,
+`Author`,
+`Quantity`,
+`SupplierID`,
+`SubjectID`)
+VALUES
+('book1', 12.34, 'author1', 5, 3, 1),
+('book2', 56.78, 'author2', 2, 3, 1),
+('book3', 90.12, 'author3', 10, 2, 1),
+('book4', 34.56, 'author4', 12, 3, 2),
+('book5', 78.90, 'author5', 5, 2, 2),
+('book6', 12.34, 'author6', 30, 1, 3),
+('book7', 56.90, 'author7', 17, 3, 4),
+('book8', 33.44, 'author8', 2, 1, 3);

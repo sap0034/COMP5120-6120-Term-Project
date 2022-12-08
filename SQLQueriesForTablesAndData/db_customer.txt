@@ -1,0 +1,19 @@
+CREATE TABLE `sap0034db`.`db_customer` (
+  `CustomerID` INT NOT NULL AUTO_INCREMENT,
+  `LastName` VARCHAR(45) NOT NULL,
+  `FirstName` VARCHAR(45) NOT NULL,
+  `Phone` VARCHAR(15) NOT NULL,
+  PRIMARY KEY (`CustomerID`))
+COMMENT = 'This table holds the customer information.';
+
+
+
+INSERT INTO `sap0034db`.`db_customer`
+(`LastName`,
+`FirstName`,
+`Phone`)
+VALUES
+('lastname1', 'firstname1', '334-001-001'),
+('lastname2', 'firstname2', '334-002-002'),
+('lastname3', 'firstname3', '334-003-003'),
+('lastname4', 'firstname4', '334-004-004');

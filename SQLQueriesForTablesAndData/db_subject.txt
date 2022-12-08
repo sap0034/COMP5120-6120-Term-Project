@@ -1,0 +1,15 @@
+CREATE TABLE `sap0034db`.`db_subject` (
+  `SubjectID` INT NOT NULL AUTO_INCREMENT,
+  `CategoryName` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`SubjectID`))
+COMMENT = 'This table holds all of the subjects or categories for the books.';
+
+
+INSERT INTO `sap0034db`.`db_subject`
+(`CategoryName`)
+VALUES
+('category1'),
+('category2'),
+('category3'),
+('category4'),
+('category5');

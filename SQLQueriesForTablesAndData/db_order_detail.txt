@@ -1,0 +1,37 @@
+CREATE TABLE `sap0034db`.`db_order_detail` (
+  `OrderDetailID` INT NOT NULL AUTO_INCREMENT,
+  `BookID` INT NOT NULL,
+  `OrderID` INT NOT NULL,
+  `Quantity` INT NOT NULL,
+  PRIMARY KEY (`OrderDetailID`),
+  INDEX `BookID_idx` (`BookID` ASC) VISIBLE,
+  INDEX `OrderID_idx` (`OrderID` ASC) VISIBLE,
+  CONSTRAINT `BookID`
+    FOREIGN KEY (`BookID`)
+    REFERENCES `sap0034db`.`db_book` (`BookID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `OrderID`
+    FOREIGN KEY (`OrderID`)
+    REFERENCES `sap0034db`.`db_order` (`OrderID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+COMMENT = 'This table holds the details of the orders including which books were bought and the quantity for the order.';
+
+
+INSERT INTO `sap0034db`.`db_order_detail`
+(`BookID`,
+`OrderID`,
+`Quantity`)
+VALUES
+(1, 1, 2),
+(4, 1, 1),
+(6, 2, 2),
+(7, 2, 3),
+(5, 3, 1),
+(3, 4, 2),
+(4, 4, 1),
+(7, 4, 1),
+(1, 5, 1),
+(1, 6, 2),
+(1, 7, 1);

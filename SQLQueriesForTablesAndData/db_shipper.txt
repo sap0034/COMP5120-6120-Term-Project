@@ -1,0 +1,14 @@
+CREATE TABLE `sap0034db`.`db_shipper` (
+  `ShipperID` INT NOT NULL AUTO_INCREMENT,
+  `ShipperName` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`ShipperID`))
+COMMENT = 'This table holds all of the shipper names who will ship the books.';
+
+
+INSERT INTO `sap0034db`.`db_shipper`
+(`ShipperName`)
+VALUES
+('shipper1'),
+('shipper2'),
+('shipper3'),
+('shipper4');

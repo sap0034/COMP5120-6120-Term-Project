@@ -1,0 +1,21 @@
+CREATE TABLE `sap0034db`.`db_supplier` (
+  `SupplierID` INT NOT NULL AUTO_INCREMENT,
+  `CompanyName` VARCHAR(256) NOT NULL,
+  `ContactLastName` VARCHAR(45) NOT NULL,
+  `ContactFirstName` VARCHAR(45) NOT NULL,
+  `Phone` VARCHAR(15) NOT NULL,
+  PRIMARY KEY (`SupplierID`))
+COMMENT = 'This table holds the suppliers of the bookstore items for the orders';
+
+
+
+INSERT INTO `sap0034db`.`db_supplier`
+(`CompanyName`,
+`ContactLastName`,
+`ContactFirstName`,
+`Phone`)
+VALUES
+('supplier1', 'company1', 'company1', '1111111111'),
+('supplier2', 'company2', 'company2', '2222222222'),
+('supplier3', 'company3', 'company3', '3333333333'),
+('supplier4', 'company4', ' ', '4444444444');

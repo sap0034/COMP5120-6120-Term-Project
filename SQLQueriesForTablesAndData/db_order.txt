@@ -1,0 +1,43 @@
+CREATE TABLE `sap0034db`.`db_order` (
+  `OrderID` INT NOT NULL AUTO_INCREMENT,
+  `CustomerID` INT NOT NULL,
+  `EmployeeID` INT NOT NULL,
+  `OrderDate` DATE NOT NULL,
+  `ShippedDate` DATE NULL,
+  `ShipperID` INT NULL,
+  PRIMARY KEY (`OrderID`),
+  INDEX `CustomerID_idx` (`CustomerID` ASC) VISIBLE,
+  INDEX `EmployeeID_idx` (`EmployeeID` ASC) VISIBLE,
+  INDEX `ShipperID_idx` (`ShipperID` ASC) VISIBLE,
+  CONSTRAINT `CustomerID`
+    FOREIGN KEY (`CustomerID`)
+    REFERENCES `sap0034db`.`db_customer` (`CustomerID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `EmployeeID`
+    FOREIGN KEY (`EmployeeID`)
+    REFERENCES `sap0034db`.`db_employee` (`EmployeeID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `ShipperID`
+    FOREIGN KEY (`ShipperID`)
+    REFERENCES `sap0034db`.`db_shipper` (`ShipperID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+COMMENT = 'This table holds all of the orders for books by customers and who the shippers are.';
+
+
+INSERT INTO `sap0034db`.`db_order`
+(`CustomerID`,
+`EmployeeID`,
+`OrderDate`,
+`ShippedDate`,
+`ShipperID`)
+VALUES
+(1, 1, '2016-08-01' , '2016-08-03', 1),
+(1, 2, '2016-08-04' , NULL, NULL),
+(2, 1, '2016-08-01' , '2016-08-04', 2),
+(4, 2, '2016-08-04' , '2016-08-04', 1),
+(1, 1, '2016-08-04' , '2016-08-05', 1),
+(4, 2, '2016-08-04' , '2016-08-05', 1),
+(3, 1, '2016-08-04' , '2016-08-04', 1);

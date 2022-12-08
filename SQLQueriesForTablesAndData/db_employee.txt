@@ -1,0 +1,15 @@
+CREATE TABLE `sap0034db`.`db_employee` (
+  `EmployeeID` INT NOT NULL AUTO_INCREMENT,
+  `LastName` VARCHAR(45) NOT NULL,
+  `FirstName` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`EmployeeID`))
+COMMENT = 'This tables holds all of the employees.';
+
+
+INSERT INTO `sap0034db`.`db_employee`
+(`LastName`,
+`FirstName`)
+VALUES
+('lastname5', 'firstname5'),
+('lastname6', 'firstname6'),
+('lastname6', 'firstname9');
